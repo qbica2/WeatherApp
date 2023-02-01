@@ -172,10 +172,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cityLabel" destination="n2G-xq-f1M" id="y6u-u1-zgx"/>
+                        <outlet property="conditionImageView" destination="vUx-dj-TTd" id="IfG-Zr-9nC"/>
+                        <outlet property="descriptionLabel" destination="pMs-UK-2rg" id="VXr-66-pql"/>
+                        <outlet property="feelslikeLabel" destination="6yp-pG-C5u" id="r59-V1-XfK"/>
                         <outlet property="feelslikeStackView" destination="3g2-bK-v7e" id="Ia7-Ph-w4q"/>
+                        <outlet property="humidityLabel" destination="n1B-hb-iCO" id="3H4-kd-snm"/>
                         <outlet property="humidityStackView" destination="FPV-Lb-Lde" id="K3c-Q8-f4F"/>
+                        <outlet property="pressureLabel" destination="cy0-mh-B1W" id="AWh-Kg-epv"/>
                         <outlet property="pressureStackView" destination="FAq-1B-Ejz" id="ALc-du-mZh"/>
+                        <outlet property="tempLabel" destination="4qo-Nd-gwT" id="Lcx-1k-cnD"/>
                         <outlet property="topStackView" destination="X5g-Rl-zaL" id="ZJH-9Z-wjB"/>
+                        <outlet property="windLabel" destination="AfB-WO-80j" id="W77-v9-Lxf"/>
                         <outlet property="windStackView" destination="Jvh-Z2-EFb" id="hPl-X2-sKl"/>
                     </connections>
                 </viewController>

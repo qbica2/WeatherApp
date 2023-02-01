@@ -15,7 +15,14 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var windStackView: UIStackView!
     @IBOutlet weak var humidityStackView: UIStackView!
     @IBOutlet weak var pressureStackView: UIStackView!
-    
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var conditionImageView: UIImageView!
+    @IBOutlet weak var feelslikeLabel: UILabel!
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
     
     var locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
@@ -24,6 +31,7 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         
         locationManager.delegate = self
+        weatherManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
 
@@ -53,3 +61,24 @@ extension LandingViewController: CLLocationManagerDelegate {
     }
 }
 
+//MARK: - WeatherManagerDelegate
+
+extension LandingViewController: WeatherManagerDelegate {
+    
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
+        DispatchQueue.main.async {
+            self.tempLabel.text = "\(weather.temperatureString)°"
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.descriptionLabel.text = weather.description
+            self.cityLabel.text = weather.cityName
+            self.humidityLabel.text = "% \(weather.humidityString)"
+            self.feelslikeLabel.text = "\(weather.feelslikeString)°"
+            self.windLabel.text = "\(weather.windSpeedString) km/h"
+            self.pressureLabel.text = "\(weather.pressureString) hPa"
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error)
+    }
+}
