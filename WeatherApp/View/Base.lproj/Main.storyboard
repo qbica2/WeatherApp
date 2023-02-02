@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MKJ-vM-f7A">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -191,15 +191,79 @@
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
+        <!--City List View Controller-->
+        <scene sceneID="KaG-Vp-N5D">
+            <objects>
+                <viewController id="MKJ-vM-f7A" customClass="CityListViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mrB-hc-0wE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a city from your list or search for a new city" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpv-Nm-ZV9">
+                                <rect key="frame" x="16" y="89" width="361" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-Fl-NP0">
+                                <rect key="frame" x="16" y="162" width="361" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PnB-Fr-ed2">
+                                        <rect key="frame" x="0.0" y="0.0" width="340.66666666666669" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W9x-Qu-Vsz">
+                                        <rect key="frame" x="340.66666666666669" y="0.99999999999999645" width="20.333333333333314" height="38.333333333333329"/>
+                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="N4b-bK-lxb"/>
+                                </constraints>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-bn-TE2">
+                                <rect key="frame" x="0.0" y="232" width="393" height="620"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbQ-fw-IOR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vbQ-fw-IOR" firstAttribute="trailing" secondItem="Bvi-bn-TE2" secondAttribute="trailing" id="1hF-cU-SMu"/>
+                            <constraint firstItem="Rpv-Nm-ZV9" firstAttribute="leading" secondItem="vbQ-fw-IOR" secondAttribute="leading" constant="16" id="7kD-h8-5mv"/>
+                            <constraint firstItem="Bvi-bn-TE2" firstAttribute="top" secondItem="Khm-Fl-NP0" secondAttribute="bottom" constant="30" id="LgD-lA-0MW"/>
+                            <constraint firstItem="Rpv-Nm-ZV9" firstAttribute="top" secondItem="vbQ-fw-IOR" secondAttribute="top" constant="30" id="WdG-2a-YLo"/>
+                            <constraint firstItem="Khm-Fl-NP0" firstAttribute="leading" secondItem="vbQ-fw-IOR" secondAttribute="leading" constant="16" id="i0T-oU-Ni9"/>
+                            <constraint firstAttribute="bottom" secondItem="Bvi-bn-TE2" secondAttribute="bottom" id="kUv-tC-ZNk"/>
+                            <constraint firstItem="Bvi-bn-TE2" firstAttribute="leading" secondItem="vbQ-fw-IOR" secondAttribute="leading" id="kls-zg-HiJ"/>
+                            <constraint firstItem="vbQ-fw-IOR" firstAttribute="trailing" secondItem="Khm-Fl-NP0" secondAttribute="trailing" constant="16" id="r5j-Ci-wi3"/>
+                            <constraint firstItem="Khm-Fl-NP0" firstAttribute="top" secondItem="Rpv-Nm-ZV9" secondAttribute="bottom" constant="30" id="tbA-Qb-fV9"/>
+                            <constraint firstItem="vbQ-fw-IOR" firstAttribute="trailing" secondItem="Rpv-Nm-ZV9" secondAttribute="trailing" constant="16" id="ymq-Qc-UhB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchTextField" destination="PnB-Fr-ed2" id="Efk-m4-CcZ"/>
+                        <outlet property="tableView" destination="Bvi-bn-TE2" id="YL1-uE-ymr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pd9-1Y-B0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912.2137404580152" y="-2.1126760563380285"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cloud.fill" catalog="system" width="128" height="87"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="landingBackground">
-            <color red="0.74901960784313726" green="0.91764705882352937" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.74900001287460327" green="0.9179999828338623" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="viewsBackground">
-            <color red="0.69954044113333336" green="0.91764705879999997" blue="0.96078431369999995" alpha="0.85109685430463577" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.69999998807907104" green="0.9179999828338623" blue="0.96100002527236938" alpha="0.85100001096725464" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
