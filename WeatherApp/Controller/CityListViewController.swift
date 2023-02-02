@@ -12,7 +12,7 @@ class CityListViewController: UIViewController {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var searchButton: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,15 @@ class CityListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource  = self
         tableView.register(UINib(nibName: "CityListTableViewCell", bundle: nil), forCellReuseIdentifier: "CityListTableViewCell")
- 
+        
+        searchButton.isUserInteractionEnabled = true
+        let searchGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(searchCity))
+        searchButton.addGestureRecognizer(searchGestureRecognizer)
     }
     
+    @objc func searchCity(){
+        print(searchTextField.text)
+    }
 
 }
 

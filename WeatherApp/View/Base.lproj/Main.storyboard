@@ -243,6 +243,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchButton" destination="W9x-Qu-Vsz" id="ZMP-gD-pGc"/>
                         <outlet property="searchTextField" destination="PnB-Fr-ed2" id="Efk-m4-CcZ"/>
                         <outlet property="tableView" destination="Bvi-bn-TE2" id="YL1-uE-ymr"/>
                     </connections>
