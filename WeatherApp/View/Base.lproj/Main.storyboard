@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MKJ-vM-f7A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jEF-UX-2Eg">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -10,16 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Landing View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DetailViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView contentMode="scaleAspectFit" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="X5g-Rl-zaL">
-                                <rect key="frame" x="20" y="99" width="353" height="200"/>
+                                <rect key="frame" x="20" y="143" width="353" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="g2m-6j-e00">
                                         <rect key="frame" x="0.0" y="0.0" width="174" height="200"/>
@@ -57,7 +57,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AIR CONDITIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YI-qj-fhE">
-                                <rect key="frame" x="40" y="319" width="313" height="30"/>
+                                <rect key="frame" x="40" y="363" width="313" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="9hn-ai-pbW"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="gEb-qk-5NN">
-                                <rect key="frame" x="40" y="379" width="313" height="60"/>
+                                <rect key="frame" x="40" y="423" width="313" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3g2-bK-v7e">
                                         <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="60"/>
@@ -110,7 +110,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RGl-sq-VHm">
-                                <rect key="frame" x="40" y="459" width="313" height="60"/>
+                                <rect key="frame" x="40" y="503" width="313" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FPV-Lb-Lde">
                                         <rect key="frame" x="0.0" y="0.0" width="131.66666666666666" height="60"/>
@@ -171,6 +171,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RGl-sq-VHm" secondAttribute="trailing" constant="40" id="uHR-Uw-Mha"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="jJp-gr-HFS"/>
                     <connections>
                         <outlet property="cityLabel" destination="n2G-xq-f1M" id="y6u-u1-zgx"/>
                         <outlet property="conditionImageView" destination="vUx-dj-TTd" id="IfG-Zr-9nC"/>
@@ -189,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1924.4274809160304" y="11.971830985915494"/>
         </scene>
         <!--City List View Controller-->
         <scene sceneID="KaG-Vp-N5D">
@@ -200,13 +201,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a city from your list or search for a new city" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpv-Nm-ZV9">
-                                <rect key="frame" x="16" y="89" width="361" height="43"/>
+                                <rect key="frame" x="16" y="133" width="361" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khm-Fl-NP0">
-                                <rect key="frame" x="16" y="162" width="361" height="40"/>
+                                <rect key="frame" x="16" y="206" width="361" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PnB-Fr-ed2">
                                         <rect key="frame" x="0.0" y="0.0" width="340.66666666666669" height="40"/>
@@ -223,7 +224,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-bn-TE2">
-                                <rect key="frame" x="0.0" y="232" width="393" height="620"/>
+                                <rect key="frame" x="0.0" y="276" width="393" height="576"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -242,15 +243,36 @@
                             <constraint firstItem="vbQ-fw-IOR" firstAttribute="trailing" secondItem="Rpv-Nm-ZV9" secondAttribute="trailing" constant="16" id="ymq-Qc-UhB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="p3m-mv-Xwn"/>
                     <connections>
                         <outlet property="searchButton" destination="W9x-Qu-Vsz" id="ZMP-gD-pGc"/>
                         <outlet property="searchTextField" destination="PnB-Fr-ed2" id="Efk-m4-CcZ"/>
                         <outlet property="tableView" destination="Bvi-bn-TE2" id="YL1-uE-ymr"/>
+                        <outlet property="topLabel" destination="Rpv-Nm-ZV9" id="o6W-KB-K3t"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toDetail" id="BPT-7j-GJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd9-1Y-B0l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912.2137404580152" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1034.3511450381679" y="11.971830985915494"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oko-kA-EyS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jEF-UX-2Eg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IeF-th-gd2">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MKJ-vM-f7A" kind="relationship" relationship="rootViewController" id="D9L-xi-OB3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oyP-PN-uLK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107.63358778625954" y="11.971830985915494"/>
         </scene>
     </scenes>
     <resources>

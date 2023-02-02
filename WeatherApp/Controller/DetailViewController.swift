@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 class DetailViewController: UIViewController {
     
@@ -24,47 +23,32 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     
-    var locationManager = CLLocationManager()
     var weatherManager = WeatherManager()
+    var cityName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        weatherManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-
         for x in [topStackView, feelslikeStackView, windStackView, humidityStackView, pressureStackView] {
             x?.layer.cornerRadius = 12
             x?.layer.masksToBounds = true
         }
-    }
-
-
-}
-
-//MARK: - LocationManagerDelegate
-
-extension DetailViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            locationManager.stopUpdatingLocation()
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            weatherManager.fetchWeather(latitude: lat, longitute: lon)
-        }
+        
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+    override func viewWillAppear(_ animated: Bool) {
+        weatherManager.delegate = self
+        weatherManager.fetchWeather(cityName: cityName)
+
     }
+
+
 }
 
 //MARK: - WeatherManagerDelegate
 
 extension DetailViewController: WeatherManagerDelegate {
-    
+
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.tempLabel.text = "\(weather.temperatureString)°"
@@ -77,7 +61,7 @@ extension DetailViewController: WeatherManagerDelegate {
             self.pressureLabel.text = "\(weather.pressureString) hPa"
         }
     }
-    
+
     func didFailWithError(error: Error) {
         print(error)
     }
