@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class LandingViewController: UIViewController {
+class DetailViewController: UIViewController {
     
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var feelslikeStackView: UIStackView!
@@ -46,7 +46,7 @@ class LandingViewController: UIViewController {
 
 //MARK: - LocationManagerDelegate
 
-extension LandingViewController: CLLocationManagerDelegate {
+extension DetailViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             locationManager.stopUpdatingLocation()
@@ -63,7 +63,7 @@ extension LandingViewController: CLLocationManagerDelegate {
 
 //MARK: - WeatherManagerDelegate
 
-extension LandingViewController: WeatherManagerDelegate {
+extension DetailViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
