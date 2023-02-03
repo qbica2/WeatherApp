@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DetailViewController: UIViewController {
     
@@ -26,6 +27,9 @@ class DetailViewController: UIViewController {
     var weatherManager = WeatherManager()
     var cityName = ""
     
+    var coreDataManager = CoreDataManager()
+    var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,12 +41,23 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        locationManager.delegate = self
         weatherManager.delegate = self
-        weatherManager.fetchWeather(cityName: cityName)
+
+        
+        if cityName == "current" {
+            locationManager.requestLocation()
+        } else {
+            weatherManager.fetchWeather(cityName: cityName)
+        }
 
     }
 
-
+    @IBAction func savePressed(_ sender: UIButton) {
+        coreDataManager.saveData(cityName: cityLabel.text!, id: UUID(), entityName: "Cities")
+    }
+    
 }
 
 //MARK: - WeatherManagerDelegate
@@ -65,4 +80,25 @@ extension DetailViewController: WeatherManagerDelegate {
     func didFailWithError(error: Error) {
         print(error)
     }
+}
+
+//MARK: - CLLocationManagerDelegate
+
+extension DetailViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitute: lon)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    
+    
 }

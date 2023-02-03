@@ -20,6 +20,7 @@
 		E02FD334298AD28E00D85B06 /* CityListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FD332298AD28E00D85B06 /* CityListTableViewCell.swift */; };
 		E02FD335298AD28E00D85B06 /* CityListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E02FD333298AD28E00D85B06 /* CityListTableViewCell.xib */; };
 		E030A01F298BC1E90046D508 /* CityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E030A01E298BC1E90046D508 /* CityListViewController.swift */; };
+		E080EA64298D2F350033012D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E080EA63298D2F350033012D /* CoreDataManager.swift */; };
 		E0AC9C6C298BE6760092CFEA /* CurrentLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC9C6A298BE6760092CFEA /* CurrentLocationTableViewCell.swift */; };
 		E0AC9C6D298BE6760092CFEA /* CurrentLocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AC9C6B298BE6760092CFEA /* CurrentLocationTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		E02FD332298AD28E00D85B06 /* CityListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListTableViewCell.swift; sourceTree = "<group>"; };
 		E02FD333298AD28E00D85B06 /* CityListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityListTableViewCell.xib; sourceTree = "<group>"; };
 		E030A01E298BC1E90046D508 /* CityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewController.swift; sourceTree = "<group>"; };
+		E080EA63298D2F350033012D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E0AC9C6A298BE6760092CFEA /* CurrentLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationTableViewCell.swift; sourceTree = "<group>"; };
 		E0AC9C6B298BE6760092CFEA /* CurrentLocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CurrentLocationTableViewCell.xib; path = ../Controller/CurrentLocationTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				E02FD32C298A849D00D85B06 /* WeatherData.swift */,
 				E02FD32E298A97FF00D85B06 /* WeatherManager.swift */,
 				E02FD330298A981400D85B06 /* WeatherModel.swift */,
+				E080EA63298D2F350033012D /* CoreDataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				E02FD334298AD28E00D85B06 /* CityListTableViewCell.swift in Sources */,
 				E02FD315298A7AD700D85B06 /* SceneDelegate.swift in Sources */,
 				E030A01F298BC1E90046D508 /* CityListViewController.swift in Sources */,
+				E080EA64298D2F350033012D /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
