@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jEF-UX-2Eg">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -153,6 +153,19 @@
                                     <constraint firstAttribute="height" constant="60" id="wZH-Gf-h8X"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jH-eG-wUJ">
+                                <rect key="frame" x="150.33333333333334" y="603" width="92.666666666666657" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="qbj-Tx-lxo"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save city" cornerStyle="capsule">
+                                    <color key="baseBackgroundColor" name="viewsBackground"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="savePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x7e-oi-qXa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="landingBackground"/>
@@ -160,10 +173,12 @@
                             <constraint firstItem="8YI-qj-fhE" firstAttribute="top" secondItem="X5g-Rl-zaL" secondAttribute="bottom" constant="20" id="2Nw-LK-0Ss"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8YI-qj-fhE" secondAttribute="trailing" constant="40" id="9Tt-Rd-H17"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gEb-qk-5NN" secondAttribute="trailing" constant="40" id="GbC-8L-KcZ"/>
+                            <constraint firstItem="3jH-eG-wUJ" firstAttribute="top" secondItem="RGl-sq-VHm" secondAttribute="bottom" constant="40" id="NOP-Lm-izJ"/>
                             <constraint firstItem="gEb-qk-5NN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="NZ1-h5-uQU"/>
                             <constraint firstItem="RGl-sq-VHm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Qox-Au-tCY"/>
                             <constraint firstItem="gEb-qk-5NN" firstAttribute="top" secondItem="8YI-qj-fhE" secondAttribute="bottom" constant="30" id="ZWa-J4-2la"/>
                             <constraint firstItem="X5g-Rl-zaL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="ih1-AF-OvD"/>
+                            <constraint firstItem="3jH-eG-wUJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lKX-Pp-dSy"/>
                             <constraint firstItem="X5g-Rl-zaL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="mnG-Cb-T3N"/>
                             <constraint firstItem="RGl-sq-VHm" firstAttribute="top" secondItem="gEb-qk-5NN" secondAttribute="bottom" constant="20" id="nPJ-IU-17O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X5g-Rl-zaL" secondAttribute="trailing" constant="20" id="rdU-RK-S0E"/>
