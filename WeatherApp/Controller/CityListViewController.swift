@@ -14,6 +14,9 @@ class CityListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIImageView!
     @IBOutlet weak var topLabel: UILabel!
+    
+    var selectedCity = ""
+    var coreDataManager = CoreDataManager()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,17 @@ class CityListViewController: UIViewController {
         searchButton.addGestureRecognizer(searchGestureRecognizer)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchDataFromCoreData()        
+    }
+    
+    func fetchDataFromCoreData(){
+      let isDataFetch =  coreDataManager.fetchData(entityName: "Cities")
+        if isDataFetch {
+            tableView.reloadData()
+        }
+    }
+    
 }
 
 //MARK: - TableView
@@ -36,14 +50,15 @@ class CityListViewController: UIViewController {
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return coreDataManager.cityArray.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityListTableViewCell") as! CityListTableViewCell
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "CurrentLocationTableViewCell") as! CurrentLocationTableViewCell
         
-        for x in [cell, cell2] {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CityListTableViewCell") as! CityListTableViewCell
+        let myLocationCell = tableView.dequeueReusableCell(withIdentifier: "CurrentLocationTableViewCell") as! CurrentLocationTableViewCell
+     
+        for x in [cell, myLocationCell] {
             x.layer.borderWidth = 1
             x.layer.cornerRadius = 12
             x.clipsToBounds = true
@@ -53,17 +68,30 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderColor = UIColor.black.cgColor
         
         
+
         if indexPath.row == 0 {
-            return cell2
+            return myLocationCell
         } else {
+            cell.cityLabel.text = coreDataManager.cityArray[indexPath.row - 1]
             return cell
         }
+        
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            selectedCity = "current"
+        } else {
+            selectedCity = coreDataManager.cityArray[indexPath.row - 1 ]
+        }
+        performSegue(withIdentifier: "toDetail", sender: nil)
+    }
+    
     
     
 }
@@ -91,7 +119,8 @@ extension CityListViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if searchTextField.text != nil {
+        if let city = searchTextField.text {
+            selectedCity = city
             performSegue(withIdentifier: "toDetail", sender: nil)
         }
         
@@ -101,7 +130,7 @@ extension CityListViewController: UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
             let destinationVC = segue.destination as! DetailViewController
-            destinationVC.cityName = searchTextField.text!
+            destinationVC.cityName = selectedCity
         }
     }
     
