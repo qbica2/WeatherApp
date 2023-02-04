@@ -47,13 +47,45 @@ struct CoreDataManager {
         object.setValue(cityName, forKey: "cityName")
         object.setValue(UUID(), forKey: "id")
         
-        do {
-            try context.save()
-        } catch {
-            print("error")
-        }
+        contextSave()
         
     }
     
+    mutating func deleteSingleData(entityName: String, row: Int) -> Bool{
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        
+        let idString = idArray[row].uuidString
+        
+        request.predicate = NSPredicate(format: "id == %@", idString)
+        
+        do {
+            
+            let results = try context.fetch(request)
+  
+            if let result = results.first as? NSManagedObject {
+                context.delete(result)
+                idArray.remove(at: row)
+                cityArray.remove(at: row)
+                contextSave()
+                return true
+            }
+            
+        } catch {
+            print("error")
+            return false
+        }
+        return false
+    }
+    
+    func contextSave(){
+        do {
+            try context.save()
+        } catch {
+            print("context save errror")
+        }
+    }
     
 }
+
+
