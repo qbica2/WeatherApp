@@ -10,9 +10,6 @@ import UIKit
 class CityListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var tempLabel: UILabel!
-    @IBOutlet weak var minMaxLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

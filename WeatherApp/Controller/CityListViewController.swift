@@ -59,14 +59,11 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         let myLocationCell = tableView.dequeueReusableCell(withIdentifier: "CurrentLocationTableViewCell") as! CurrentLocationTableViewCell
      
         for x in [cell, myLocationCell] {
-            x.layer.borderWidth = 1
+            x.layer.borderWidth = 5
+            x.layer.borderColor = UIColor(named: "landingBackground")?.cgColor
             x.layer.cornerRadius = 12
             x.clipsToBounds = true
         }
-         
-        cell.backgroundColor = UIColor.red
-        cell.layer.borderColor = UIColor.black.cgColor
-        
         
 
         if indexPath.row == 0 {
@@ -80,7 +77,11 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100.0
+        if indexPath.row == 0 {
+            return 130
+        } else {
+            return 60
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -106,10 +107,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
-    
-    
-    
+ 
 }
 
 //MARK: - UITextField
