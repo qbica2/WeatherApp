@@ -240,11 +240,11 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bvi-bn-TE2">
                                 <rect key="frame" x="0.0" y="276" width="393" height="576"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="landingBackground"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vbQ-fw-IOR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="landingBackground"/>
                         <constraints>
                             <constraint firstItem="vbQ-fw-IOR" firstAttribute="trailing" secondItem="Bvi-bn-TE2" secondAttribute="trailing" id="1hF-cU-SMu"/>
                             <constraint firstItem="Rpv-Nm-ZV9" firstAttribute="leading" secondItem="vbQ-fw-IOR" secondAttribute="leading" constant="16" id="7kD-h8-5mv"/>
@@ -299,9 +299,6 @@
         <namedColor name="viewsBackground">
             <color red="0.69999998807907104" green="0.9179999828338623" blue="0.96100002527236938" alpha="0.85100001096725464" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
