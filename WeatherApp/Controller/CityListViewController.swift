@@ -94,6 +94,11 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            if indexPath.row == 0 {
+                print("opps")
+                return
+            }
+            
             let isRemoveSuccess = coreDataManager.deleteSingleData(entityName: "Cities", row: indexPath.row - 1)
             if isRemoveSuccess {
                 tableView.reloadData()
