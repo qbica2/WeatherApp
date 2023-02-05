@@ -27,7 +27,8 @@ struct WeatherManager {
     }
     
     func fetchWeather(cityName: String) {
-        let urlString = "\(baseURL)&q=\(cityName)"
+        let encodedCity = cityName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let urlString = "\(baseURL)&q=\(encodedCity)"
         performRequest(with: urlString)
     }
     
